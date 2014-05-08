@@ -60,7 +60,7 @@
 	<p>
 		<?php echo CHtml::encode($order->getAttributeLabel('status')); ?></b>
 		: <b><?php
-		echo CHtml::encode($order->status->status_name);
+		echo CHtml::encode(isset($order->status) ? $order->status->status_name : '');
 		?></b>
 	</p>
 
