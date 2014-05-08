@@ -242,5 +242,29 @@ class SiteController extends Controller
 		*/
 	}
 	
+    public function actionStatus($id) {
+        $posted_statusid = Yii::app()->request->getParam('statusid');
+        //if ($posted_statusid == 'undefined')
+        //    $posted_statusid = null;
+        //$type = isset($posted_type) ? $posted_type : $type;
+        $success = Orders::model()->updateByPk($id, array('status_id'=>$posted_statusid));
+        $success = $success ? 1 : 0;
+        $request = Yii::app()->request;
+        if ($request->isAjaxRequest) {
+            $response = array('operation'=>'status', 'success'=>$success);
+            //echo $model->errors;
+            if (isset($error) && !empty($error)) {
+                $response['error'] = $error;
+            } else if (!empty($model->errors)) {
+                $response['error'] = $model->errors;
+            }
+            echo CJSON::encode($response);
+        } else {
+            if (isset($request->urlReferrer) && $request->urlReferrer != $request->url)
+                $this->redirect($request->urlReferrer);
+            else
+                $this->redirect($this->createUrl('users/view', array('id'=>$id)));
+        }
+    }
 	
 }
