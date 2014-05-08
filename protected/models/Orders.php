@@ -85,6 +85,7 @@ class Orders extends CActiveRecord
 			'page' => 'Page',
 			'comment' => 'Комментарий',
 			'pillow' => 'Подушки',
+			'status_id' => 'Статус заказа',
 			
 		);
 	}
