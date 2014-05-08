@@ -42,16 +42,13 @@ class SiteController extends Controller
         		'params'=>array('banned'=>0),
 	    	)),*/
 		));
-		if (isset($_GET['status']))
-		{
+		if (isset($_GET['status'])) {
 			$criteria->addSearchCondition('status_id',$_GET['status']);
 			$PageHeader=Statuses::model()->findByPk($_GET['status'])->status_name;
+		} else  {
+			$criteria->addCondition('status_id is null');
+            $PageHeader='Новые заказы';
 		}
-		else 
-		{
-			$PageHeader='Все заказы';
-		}
-		
 		
 		$dataProvider=new CActiveDataProvider('Orders', array(
 			'pagination'=>array(
