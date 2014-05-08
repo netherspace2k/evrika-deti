@@ -32,7 +32,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		array(
 		    'name'=>'status',
 		    'type'=>'raw',
-		    'value'=>'$data->status->status_name',
+		    'value'=>'isset($data->status) ? $data->status->status_name : ""',
 		    //'filter'=>false,
 		),
 		array(

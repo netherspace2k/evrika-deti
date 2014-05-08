@@ -185,24 +185,25 @@
 
 	<div class="row body-text">
 		<?php 
-			echo $form->labelEx($model,'body'); 
-			$model->body ='Здраствуйте, '.$order->fio.'.<br><br>';
-			$model->body.='Вы оставили заказ на нашем сайте evrika-deti.ru.<br>'; 
-			$model->body.='Ваш уникальный номер заказа '.$order->id.'. Сохраняйте его в теме при переписке.<br><br>';
-			$model->body.='Вы заказали:<br>';
-			$model->body.='- кол-во манежей 0-3: '.(($order->playpen_type=='0-3')?$order->count:'0').'<br>';
-			$model->body.='- кол-во манежей 3+: '.(($order->playpen_type=='3+')?$order->count:'0').'<br>';
-			$model->body.='- подушки для авто: '.$order->pillow.'<br>';
-			$model->body.='Общая сумма заказа: '.'<br>';
-			$model->body.='Стоимость доставки в г. Москва: '.'<br>';
-			$model->body.='Общая стоимость к оплате: '.'<br><br>';
-			$model->body.='Просим Вас проверить все данные и подтвердить заказ.<br>';
-			$model->body.='Индекс: '.$order->index.'<br>';
-			$model->body.='Город: '.$order->city.'<br>';
-			$model->body.='Улица: '.$order->street.'<br>';
-			$model->body.='Улица: '.$order->house.'<br>';
-			$model->body.='Квартира: '.$order->office.'<br>';
-			$model->body.='<br>Отдел продаж.';
+			echo $form->labelEx($model,'body');
+            $CR = "\n\r"; 
+			$model->body ='Здраствуйте, '.$order->fio.'.' . $CR;
+			$model->body.='Вы оставили заказ на нашем сайте evrika-deti.ru.' . $CR . $CR; 
+			$model->body.='Ваш уникальный номер заказа '.$order->id.'. Сохраняйте его в теме при переписке.' . $CR . $CR;
+			$model->body.='Вы заказали:' . $CR;
+			$model->body.='- кол-во манежей 0-3: '.(($order->playpen_type=='0-3')?$order->count:'0') . $CR;
+			$model->body.='- кол-во манежей 3+: '.(($order->playpen_type=='3+')?$order->count:'0') . $CR;
+			$model->body.='- подушки для авто: '.$order->pillow . $CR;
+			$model->body.='Общая сумма заказа: ' . $CR;
+			$model->body.='Стоимость доставки в г. Москва: ' . $CR;
+			$model->body.='Общая стоимость к оплате: ' . $CR . $CR;
+			$model->body.='Просим Вас проверить все данные и подтвердить заказ.' . $CR;
+			$model->body.='Индекс: '.$order->index . $CR;
+			$model->body.='Город: '.$order->city . $CR;
+			$model->body.='Улица: '.$order->street . $CR;
+			$model->body.='Улица: '.$order->house . $CR;
+			$model->body.='Квартира: '.$order->office . $CR . $CR;
+			$model->body.='Отдел продаж.';
 
 			echo $form->textArea(
 				$model,

@@ -67,24 +67,25 @@ class SiteController extends Controller
 		));
 	}
 	
-	public function actionView()
+	public function actionView($id)
 	{
 		$order=$this->loadModel($id);
 		$model=new ContactForm;
 		$model->email=$order->email;
 		
 		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
+		{//var_dump($_POST['ContactForm']);//Yii::app()->end();
+			$model->attributes = $_POST['ContactForm'];
+            $model->body = $_POST['ContactForm']["body"];
 			if($model->validate())
-			{
+			{//var_dump($model->body);Yii::app()->end();
 				$charset = 'UTF-8';
-				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-				$subject=($model->body);
-				$headers="\r\nFrom: {Yii::app()->params['adminEmail']}\r\nReply-To: {params['adminEmail']}\r\n". 
+				$name = '=?UTF-8?B?'.base64_encode($model->name).'?=';
+				$subject = $model->subject;
+				$headers = "\r\nFrom: " . Yii::app()->params['adminEmail'] . "\r\nReply-To: " . Yii::app()->params['adminEmail']. "\r\n". 
  						"Content-type: text/plain; charset={$charset}\r\n"; 
 				
-				mail($model->email,$model->body,$subject,$headers);
+				mail($model->email, $subject, $model->body, $headers);
 				/*
 				if (mail("sa_id@mail.ru", "test", "test"))
 				{	
@@ -108,7 +109,7 @@ class SiteController extends Controller
 		));
 	}
 	
-	public function actionUpdate()
+	public function actionUpdate($id)
 	{
 		$model=new Orders('update');
 		$model=$this->loadModel($id);
