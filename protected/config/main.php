@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Управление заказами магазина "Еврика"',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -55,7 +55,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=shopnauni',
+			'connectionString' => 'mysql:host=localhost;dbname=evrika',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

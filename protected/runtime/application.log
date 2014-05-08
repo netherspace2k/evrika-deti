@@ -91,672 +91,574 @@ REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
 in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (160)
 in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (63)
 in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 14:45:52 [error] [exception.CException] exception 'CException' with message 'Property "Orders.url" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
+2014/05/06 19:30:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
 Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('url')
-#1 C:\xampp\htdocs\YII\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('url')
-#2 C:\xampp\htdocs\YII\framework\base\CComponent.php(612): eval()
-#3 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('CHtml::link(CHt...', Array)
-#4 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(Orders))
-#5 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
-#6 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
-#7 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
-#8 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
-#9 [internal function]: CBaseListView->renderSection(Array)
-#10 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
-#11 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
-#12 C:\xampp\htdocs\YII\framework\web\CBaseController.php(173): CBaseListView->run()
-#13 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(83): CBaseController->widget('zii.widgets.gri...', Array)
-#14 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#15 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#16 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#17 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#18 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#19 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#20 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#21 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#22 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#23 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#24 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#25 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#26 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#27 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/view&id=1
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
 ---
-2014/05/07 15:05:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shopnauni.sections' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `sections`.
-in C:\xampp\htdocs\YII\manez\protected\views\site\index.php (88)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (58)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 15:05:34 [error] [exception.CDbException] exception 'CDbException' with message 'The table "sections" for active record class "Statuses" cannot be found in the database.' in C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php:2362
+2014/05/06 19:30:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
 Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(Statuses))
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(658): CActiveRecord->getMetaData()
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(383): CActiveRecord->getTableSchema()
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(278): CJoinElement->__construct(Object(CActiveFinder), Object(CBelongsToRelation), Object(CJoinElement), 1)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), 'status')
-#5 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Orders), 'status')
-#6 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(280): CActiveRecord->getActiveFinder('status')
-#7 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('status')
-#8 C:\xampp\htdocs\YII\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('status')
-#9 C:\xampp\htdocs\YII\framework\base\CComponent.php(612): eval()
-#10 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('$data->status->...', Array)
-#11 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(Orders))
-#12 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
-#13 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
-#14 C:\xampp\htdocs\YII\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
-#15 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
-#16 [internal function]: CBaseListView->renderSection(Array)
-#17 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
-#18 C:\xampp\htdocs\YII\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
-#19 C:\xampp\htdocs\YII\framework\web\CBaseController.php(173): CBaseListView->run()
-#20 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(88): CBaseController->widget('zii.widgets.gri...', Array)
-#21 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#22 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#23 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#24 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#25 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#26 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#27 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#28 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#29 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#30 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#31 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#32 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#33 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#34 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/view&id=1
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
 ---
-2014/05/07 15:13:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "zii".' in C:\xampp\htdocs\YII\framework\web\CWebApplication.php:286
+2014/05/06 19:32:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
 Stack trace:
-#0 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('zii')
-#1 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#2 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:32:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:32:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:32:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'10.2.1.16' (using password: NO)' in /home/u939314396/public_html/YII/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/u939314396/public_html/YII/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/u939314396/public_html/YII/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/u939314396/public_html/YII/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/u939314396/public_html/YII/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/u939314396/public_html/YII/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(339): CBaseListView->init()
+#13 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#14 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#17 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#18 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#19 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#21 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#22 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#24 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#26 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#27 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#28 /home/u939314396/public_html/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:32:44 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/home/u939314396/public_html/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /home/u939314396/public_html/YII/framework/web/CAssetManager.php:138
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CAssetManager.php(123): CAssetManager->setBasePath('/home/u93931439...')
+#1 /home/u939314396/public_html/YII/framework/web/CAssetManager.php(217): CAssetManager->getBasePath()
+#2 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(350): CAssetManager->publish('/home/u93931439...')
+#3 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#4 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#6 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#7 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#8 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#9 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#10 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#11 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#12 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#16 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#17 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/u939314396/public_html/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:33:06 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/home/u939314396/public_html/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /home/u939314396/public_html/YII/framework/web/CAssetManager.php:138
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CAssetManager.php(123): CAssetManager->setBasePath('/home/u93931439...')
+#1 /home/u939314396/public_html/YII/framework/web/CAssetManager.php(217): CAssetManager->getBasePath()
+#2 /home/u939314396/public_html/YII/framework/zii/widgets/grid/CGridView.php(350): CAssetManager->publish('/home/u93931439...')
+#3 /home/u939314396/public_html/YII/framework/web/CBaseController.php(147): CGridView->init()
+#4 /home/u939314396/public_html/YII/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 /home/u939314396/public_html/protected/views/site/index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#6 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#7 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#8 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#9 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#10 /home/u939314396/public_html/protected/controllers/SiteController.php(58): CController->render('index', Array)
+#11 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#12 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#13 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#14 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('')
+#16 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#17 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /home/u939314396/public_html/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/
+---
+2014/05/06 19:33:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /home/u939314396/public_html/YII/framework/web/CController.php:483
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CController.php(270): CController->missingAction('view')
+#1 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/u939314396/public_html/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view&id=1
+HTTP_REFERER=http://jurets.besaba.com/
+---
+2014/05/06 19:34:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /home/u939314396/public_html/YII/framework/web/CController.php:483
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CController.php(270): CController->missingAction('view')
+#1 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/u939314396/public_html/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view&id=1
+HTTP_REFERER=http://jurets.besaba.com/
+---
+2014/05/06 19:35:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /home/u939314396/public_html/YII/framework/web/CController.php:483
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CController.php(270): CController->missingAction('view')
+#1 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/u939314396/public_html/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view&id=1
+HTTP_REFERER=http://jurets.besaba.com/
+---
+2014/05/06 19:44:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in /home/u939314396/public_html/YII/framework/web/CController.php:483
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CController.php(270): CController->missingAction('view')
+#1 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('view')
+#2 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('site/view')
+#3 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/u939314396/public_html/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view&id=1
+HTTP_REFERER=http://jurets.besaba.com/index.php?r=site/index
+---
+2014/05/07 14:41:01 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in /home/u939314396/public_html/YII/framework/base/CComponent.php:266
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/db/ar/CActiveRecord.php(227): CComponent->__call('StatusList', Array)
+#1 /home/u939314396/public_html/protected/views/site/update.php(120): CActiveRecord->__call('StatusList', Array)
+#2 /home/u939314396/public_html/protected/views/site/update.php(120): Statuses->StatusList()
+#3 /home/u939314396/public_html/YII/framework/web/CBaseController.php(126): require('/home/u93931439...')
+#4 /home/u939314396/public_html/YII/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/u93931439...', Array, true)
+#5 /home/u939314396/public_html/YII/framework/web/CController.php(869): CBaseController->renderFile('/home/u93931439...', Array, true)
+#6 /home/u939314396/public_html/YII/framework/web/CController.php(782): CController->renderPartial('update', Array, true)
+#7 /home/u939314396/public_html/protected/controllers/SiteController.php(112): CController->render('update', Array)
+#8 /home/u939314396/public_html/YII/framework/web/actions/CInlineAction.php(49): SiteController->actionUpdate()
+#9 /home/u939314396/public_html/YII/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /home/u939314396/public_html/YII/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /home/u939314396/public_html/YII/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(282): CController->run('update')
+#13 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('site/update')
+#14 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/u939314396/public_html/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/update&id=10
+HTTP_REFERER=http://jurets.besaba.com/index.php?r=site/index
+---
+2014/05/07 14:42:08 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (105)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 14:47:31 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (105)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 15:27:12 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (105)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:46:09 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:46:09 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:47:47 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:47:47 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:50:55 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:50:55 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:52:35 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:52:35 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:53:35 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:53:35 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:55:49 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 17:55:49 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:07:16 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:07:16 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:36:59 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:36:59 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (69)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:51:22 [warning] [application] Failed to set unsafe attribute "name" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (78)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:51:22 [warning] [application] Failed to set unsafe attribute "body" of "ContactForm".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (78)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:51:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "update".' in /home/u939314396/public_html/YII/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('update')
+#1 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/u939314396/public_html/index.php(13): CApplication->run()
 #3 {main}
-REQUEST_URI=/yii/manez/index.php?r=zii
+REQUEST_URI=/index.php?r=update&id=19
+HTTP_REFERER=http://jurets.besaba.com/index.php?r=site/view&id=19
 ---
-2014/05/07 15:16:45 [error] [exception.CException] exception 'CException' with message 'Property "Orders.section" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
+2014/05/07 18:54:15 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
+in /home/u939314396/public_html/protected/controllers/SiteController.php (127)
+in /home/u939314396/public_html/index.php (13)
+2014/05/07 18:54:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "update".' in /home/u939314396/public_html/YII/framework/web/CWebApplication.php:286
 Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('section')
-#1 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('section')
-#2 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(Orders), 'section')
-#3 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(Orders), 'section', Array)
-#4 C:\xampp\htdocs\YII\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(Orders), 'section', Array)
-#5 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(114): CActiveForm->textField(Object(Orders), 'section')
-#6 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#10 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(111): CController->render('update', Array)
-#11 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#12 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#15 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#17 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#18 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
+#0 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('update')
+#1 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/u939314396/public_html/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=update&id=19
+HTTP_REFERER=http://jurets.besaba.com/index.php?r=site/view&id=19
+---
+2014/05/07 19:02:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "update".' in /home/u939314396/public_html/YII/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/u939314396/public_html/YII/framework/web/CWebApplication.php(141): CWebApplication->runController('update')
+#1 /home/u939314396/public_html/YII/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/u939314396/public_html/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=update&id=19
+HTTP_REFERER=http://jurets.besaba.com/index.php?r=site/view&id=19
+---
+2014/05/08 09:50:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'u939314396_gyv'@'localhost' (using password: YES)' in F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php:382
+Stack trace:
+#0 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CModule.php(387): CDbConnection->init()
+#3 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#13 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(147): CGridView->init()
+#14 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 F:\Jurets\Projects\evrika\trunk\protected\views\site\index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(126): require('F:\Jurets\Proje...')
+#17 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Jurets\Proje...', Array, true)
+#18 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(869): CBaseController->renderFile('F:\Jurets\Proje...', Array, true)
+#19 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 F:\Jurets\Projects\evrika\trunk\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#21 F:\Jurets\Projects\evrika\trunk\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(282): CController->run('')
+#26 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 F:\Jurets\Projects\evrika\trunk\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/
+---
+2014/05/08 09:50:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'u939314396_gyv'@'localhost' (using password: YES)' in F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php:382
+Stack trace:
+#0 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CModule.php(387): CDbConnection->init()
+#3 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#13 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(147): CGridView->init()
+#14 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 F:\Jurets\Projects\evrika\trunk\protected\views\site\index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(126): require('F:\Jurets\Proje...')
+#17 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Jurets\Proje...', Array, true)
+#18 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(869): CBaseController->renderFile('F:\Jurets\Proje...', Array, true)
+#19 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 F:\Jurets\Projects\evrika\trunk\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#21 F:\Jurets\Projects\evrika\trunk\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(282): CController->run('')
+#26 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 F:\Jurets\Projects\evrika\trunk\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/08 09:50:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'u939314396_gyv'@'localhost' (using password: YES)' in F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php:382
+Stack trace:
+#0 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CModule.php(387): CDbConnection->init()
+#3 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#13 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(147): CGridView->init()
+#14 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 F:\Jurets\Projects\evrika\trunk\protected\views\site\index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(126): require('F:\Jurets\Proje...')
+#17 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Jurets\Proje...', Array, true)
+#18 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(869): CBaseController->renderFile('F:\Jurets\Proje...', Array, true)
+#19 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 F:\Jurets\Projects\evrika\trunk\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#21 F:\Jurets\Projects\evrika\trunk\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(282): CController->run('')
+#26 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 F:\Jurets\Projects\evrika\trunk\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/08 09:50:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'u939314396_gyv'@'localhost' (using password: YES)' in F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php:382
+Stack trace:
+#0 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 F:\Jurets\Projects\evrika\trunk\YII\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CModule.php(387): CDbConnection->init()
+#3 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 F:\Jurets\Projects\evrika\trunk\YII\framework\db\ar\CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#12 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#13 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(147): CGridView->init()
+#14 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#15 F:\Jurets\Projects\evrika\trunk\protected\views\site\index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#16 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(126): require('F:\Jurets\Proje...')
+#17 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Jurets\Proje...', Array, true)
+#18 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(869): CBaseController->renderFile('F:\Jurets\Proje...', Array, true)
+#19 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#20 F:\Jurets\Projects\evrika\trunk\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#21 F:\Jurets\Projects\evrika\trunk\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#22 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#24 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(282): CController->run('')
+#26 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#27 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 F:\Jurets\Projects\evrika\trunk\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/05/08 09:55:39 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "F:\Jurets\Projects\evrika\trunk\assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in F:\Jurets\Projects\evrika\trunk\YII\framework\web\CAssetManager.php:138
+Stack trace:
+#0 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CAssetManager.php(123): CAssetManager->setBasePath('F:\Jurets\Proje...')
+#1 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CAssetManager.php(217): CAssetManager->getBasePath()
+#2 F:\Jurets\Projects\evrika\trunk\YII\framework\zii\widgets\grid\CGridView.php(350): CAssetManager->publish('F:\Jurets\Proje...')
+#3 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(147): CGridView->init()
+#4 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 F:\Jurets\Projects\evrika\trunk\protected\views\site\index.php(85): CBaseController->widget('zii.widgets.gri...', Array)
+#6 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(126): require('F:\Jurets\Proje...')
+#7 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Jurets\Proje...', Array, true)
+#8 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(869): CBaseController->renderFile('F:\Jurets\Proje...', Array, true)
+#9 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 F:\Jurets\Projects\evrika\trunk\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#11 F:\Jurets\Projects\evrika\trunk\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#12 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(282): CController->run('')
+#16 F:\Jurets\Projects\evrika\trunk\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#17 F:\Jurets\Projects\evrika\trunk\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 F:\Jurets\Projects\evrika\trunk\index.php(13): CApplication->run()
 #19 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php
+REQUEST_URI=/
 ---
-2014/05/07 15:17:15 [error] [exception.CException] exception 'CException' with message 'Property "Orders.section" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('section')
-#1 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('section')
-#2 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(Orders), 'section')
-#3 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(Orders), 'section', Array)
-#4 C:\xampp\htdocs\YII\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(Orders), 'section', Array)
-#5 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(114): CActiveForm->textField(Object(Orders), 'section')
-#6 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#10 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(111): CController->render('update', Array)
-#11 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#12 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#15 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#17 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#18 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#19 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php
----
-2014/05/07 15:21:27 [error] [php] htmlspecialchars() expects parameter 1 to be string, object given (C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php:103)
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(158): renderAttributes()
-#1 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2255): tag()
-#2 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(1434): activeInputField()
-#3 C:\xampp\htdocs\YII\framework\web\widgets\CActiveForm.php(725): activeTextField()
-#4 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(114): CActiveForm->textField()
-#5 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
-#6 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(869): SiteController->renderFile()
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(782): SiteController->renderPartial()
-#9 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): SiteController->render()
-#10 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
-#12 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
-#14 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
-#15 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#16 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#17 C:\xampp\htdocs\YII\manez\index.php(13): CWebApplication->run()
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-in C:\xampp\htdocs\YII\manez\protected\views\site\update.php (114)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (112)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 15:22:15 [error] [php] htmlspecialchars() expects parameter 1 to be string, object given (C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php:103)
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(158): renderAttributes()
-#1 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(2255): tag()
-#2 C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php(1434): activeInputField()
-#3 C:\xampp\htdocs\YII\framework\web\widgets\CActiveForm.php(725): activeTextField()
-#4 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(114): CActiveForm->textField()
-#5 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
-#6 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(869): SiteController->renderFile()
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(782): SiteController->renderPartial()
-#9 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): SiteController->render()
-#10 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
-#12 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
-#14 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
-#15 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#16 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#17 C:\xampp\htdocs\YII\manez\index.php(13): CWebApplication->run()
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-in C:\xampp\htdocs\YII\manez\protected\views\site\update.php (114)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (112)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 16:30:16 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(172): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:31:39 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(172): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:32:55 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(172): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:34:21 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(172): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:35:48 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(172): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:37:57 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "orderCount" is not defined in active record class "Statuses".' in C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php:226
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree(Object(CJoinElement), 'orderCount')
-#1 C:\xampp\htdocs\YII\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
-#2 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct(Object(Statuses), Array)
-#3 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1355): CActiveRecord->getActiveFinder(Array)
-#4 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
-#5 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(171): CActiveRecord->findAll()
-#6 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#7 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#8 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#11 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#12 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#13 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#14 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#15 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#16 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#17 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#18 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#19 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#20 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:38:11 [error] [exception.CException] exception 'CException' with message 'Property "Statuses.section_name" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('section_name')
-#1 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(174): CActiveRecord->__get('section_name')
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 16:43:51 [error] [php] htmlspecialchars() expects parameter 1 to be string, object given (C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php:103)
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
-#1 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
-#2 C:\xampp\htdocs\YII\framework\web\CController.php(869): SiteController->renderFile()
-#3 C:\xampp\htdocs\YII\framework\web\CController.php(782): SiteController->renderPartial()
-#4 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(86): SiteController->render()
-#5 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionView()
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
-#9 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
-#10 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#11 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#12 C:\xampp\htdocs\YII\manez\index.php(13): CWebApplication->run()
-REQUEST_URI=/yii/manez/index.php?r=site/view&id=4
-in C:\xampp\htdocs\YII\manez\protected\views\site\view.php (63)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (86)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 16:44:11 [error] [php] htmlspecialchars() expects parameter 1 to be string, object given (C:\xampp\htdocs\YII\framework\web\helpers\CHtml.php:103)
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
-#1 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
-#2 C:\xampp\htdocs\YII\framework\web\CController.php(869): SiteController->renderFile()
-#3 C:\xampp\htdocs\YII\framework\web\CController.php(782): SiteController->renderPartial()
-#4 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(86): SiteController->render()
-#5 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionView()
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
-#9 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
-#10 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#11 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#12 C:\xampp\htdocs\YII\manez\index.php(13): CWebApplication->run()
-REQUEST_URI=/yii/manez/index.php?r=site/view&id=3
-in C:\xampp\htdocs\YII\manez\protected\views\site\view.php (63)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (86)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 16:52:27 [error] [exception.CException] exception 'CException' with message 'Property "Statuses.status_id" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('status_id')
-#1 C:\xampp\htdocs\YII\manez\protected\models\Orders.php(176): CActiveRecord->__get('status_id')
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\index.php(15): Orders->StatusCount()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(58): CController->render('index', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('index')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/index
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/view&id=3
----
-2014/05/07 17:18:18 [error] [php] include(Status.php): failed to open stream: No such file or directory (C:\xampp\htdocs\YII\framework\YiiBase.php:427)
-Stack trace:
-#0 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): spl_autoload_call()
-#1 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require()
-#2 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): SiteController->renderInternal()
-#3 C:\xampp\htdocs\YII\framework\web\CController.php(869): SiteController->renderFile()
-#4 C:\xampp\htdocs\YII\framework\web\CController.php(782): SiteController->renderPartial()
-#5 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): SiteController->render()
-#6 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams()
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(286): SiteController->runAction()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(265): SiteController->runActionWithFilters()
-#10 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): SiteController->run()
-#11 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController()
-#12 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#13 C:\xampp\htdocs\YII\manez\index.php(13): CWebApplication->run()
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-in C:\xampp\htdocs\YII\manez\protected\views\site\update.php (119)
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (112)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:18:32 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:19:25 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:19:42 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "statusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('statusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): CActiveRecord->__call('statusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(119): Statuses->statusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:24:12 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:25:21 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:25:56 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:26:11 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:27:52 [error] [exception.CException] exception 'CException' with message 'Statuses and its behaviors do not have a method or closure named "StatusList".' in C:\xampp\htdocs\YII\framework\base\CComponent.php:266
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(227): CComponent->__call('StatusList', Array)
-#1 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): CActiveRecord->__call('StatusList', Array)
-#2 C:\xampp\htdocs\YII\manez\protected\views\site\update.php(121): Statuses->StatusList()
-#3 C:\xampp\htdocs\YII\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
-#4 C:\xampp\htdocs\YII\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
-#5 C:\xampp\htdocs\YII\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
-#7 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(112): CController->render('update', Array)
-#8 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#9 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#10 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#11 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#13 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#14 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#15 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/index&status=2
----
-2014/05/07 17:30:49 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:30:49 [error] [exception.CException] exception 'CException' with message 'Property "Orders.section" is not defined.' in C:\xampp\htdocs\YII\framework\base\CComponent.php:130
-Stack trace:
-#0 C:\xampp\htdocs\YII\framework\db\ar\CActiveRecord.php(145): CComponent->__get('section')
-#1 C:\xampp\htdocs\YII\framework\validators\CNumberValidator.php(78): CActiveRecord->__get('section')
-#2 C:\xampp\htdocs\YII\framework\validators\CValidator.php(213): CNumberValidator->validateAttribute(Object(Orders), 'section')
-#3 C:\xampp\htdocs\YII\framework\base\CModel.php(159): CValidator->validate(Object(Orders), NULL)
-#4 C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php(106): CModel->validate()
-#5 C:\xampp\htdocs\YII\framework\web\actions\CInlineAction.php(49): SiteController->actionUpdate()
-#6 C:\xampp\htdocs\YII\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
-#7 C:\xampp\htdocs\YII\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
-#8 C:\xampp\htdocs\YII\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
-#9 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(282): CController->run('update')
-#10 C:\xampp\htdocs\YII\framework\web\CWebApplication.php(141): CWebApplication->runController('site/update')
-#11 C:\xampp\htdocs\YII\framework\base\CApplication.php(180): CWebApplication->processRequest()
-#12 C:\xampp\htdocs\YII\manez\index.php(13): CApplication->run()
-#13 {main}
-REQUEST_URI=/yii/manez/index.php?r=site/update&id=1
-HTTP_REFERER=http://localhost/yii/manez/index.php?r=site/update&id=1
----
-2014/05/07 17:32:15 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:33:07 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:33:07 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:33:25 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:33:25 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:36:40 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:36:40 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:37:17 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:37:17 [warning] [application] Failed to set unsafe attribute "status" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
-2014/05/07 17:39:34 [warning] [application] Failed to set unsafe attribute "comment" of "Orders".
-in C:\xampp\htdocs\YII\manez\protected\controllers\SiteController.php (105)
-in C:\xampp\htdocs\YII\manez\index.php (13)
