@@ -99,11 +99,7 @@
 	<p>
 		<?php echo CHtml::encode($order->getAttributeLabel('status')); ?>
 		: <b><?php
-<<<<<<< HEAD
-		echo CHtml::encode($order->status->status_name);
-=======
 		echo CHtml::encode(isset($order->status) ? $order->status->status_name : '');
->>>>>>> 44e95b1b97b1ba68978c176dc09c60ff7f8dc359
 		?></b>
 	</p>
 	<p>
@@ -119,15 +115,6 @@
 		?></b>
 	</p>
 	<p>
-<<<<<<< HEAD
-		Стоимость товара:
-	</p>
-	<p>
-		Стоимость доставки:
-	</p>
-	<p>
-		Общая стоимость:
-=======
 		Стоимость товара: <?php echo '<b>' . $order->costOrder . '</b>'; ?>
 	</p>
 	<p>
@@ -135,7 +122,6 @@
 	</p>
 	<p>
 		Общая стоимость: <?php echo '<b>' . $order->costSummary . '</b>'; ?>
->>>>>>> 44e95b1b97b1ba68978c176dc09c60ff7f8dc359
 	</p>
 </div></div>
 
