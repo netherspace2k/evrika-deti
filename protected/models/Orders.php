@@ -24,6 +24,10 @@
  */
 class Orders extends CActiveRecord
 {
+    public $costOrder;  //стоимость заказа
+    public $costDelivery;  //стоимость доставки
+    public $costSummary;  //стоимость всего
+    
 	/**
 	 * @return string the associated database table name
 	 */
@@ -179,4 +183,22 @@ class Orders extends CActiveRecord
   		return $statusMenuList;
   		//return $statuses;
 	}
+    
+    //
+    public function afterFind() {
+        if ($this->playpen_type == '0-3')
+            $this->costOrder = 2000;
+        else if ($this->playpen_type == '3+')
+            $this->costOrder = 1900;
+        else
+            $this->costOrder = 0;
+            
+        if ($this->count >= 2)
+            $this->costDelivery = 0;
+        else
+            $this->costDelivery = 350;
+            
+        $this->costSummary = $this->costOrder+ $this->costDelivery;
+    }
+    
 }
