@@ -23,64 +23,54 @@
 	<?php echo $form->errorSummary($model); ?>
 	
     <fieldset>
-	<table>
-	<tr>
-		<td style="text-align: center; "><strong>Заказчик</strong></td>
-		<td style="text-align: center; "><strong>Содержание заказа</strong></td>
-		<td style="text-align: center; "><strong>Информация о заказе</strong></td>
-	</tr>
-	<tr>
-	<td  valign="top">
-	<?php 
-	echo $form->textFieldRow($model, 'fio', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'phone', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'email', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'index', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'city', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'street', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'house', array('class'=>'input-large')); 
-	echo $form->textFieldRow($model, 'office', array('class'=>'input-large')); 
-
-	?>
-	</td>
-	<td  valign="top">
-	<?php
-	//echo $form->textFieldRow($model, 'comment', array('class'=>'input-medium')); 
-	//echo $form->textAreaRow($model, 'comment', array('class'=>'span8', 'rows'=>5)); 
-	echo $form->textAreaRow($model, 'comment', array('class'=>'input-medium', 'rows'=>5)); 
-	echo $form->textFieldRow($model, 'playpen_type', array('class'=>'input-medium')); 
-	echo $form->textFieldRow($model, 'count', array('class'=>'input-medium')); 
-	echo $form->textFieldRow($model, 'pillow', array('class'=>'input-medium')); 	
-	?>
-	</td>
-	
-	<td  valign="top">
-	<?php
-	echo $form->dropDownListRow($model, 'status_id', Statuses::model()->StatusList(), array('class'=>'input-medium')); 	
-	echo $form->textFieldRow($model, 'payment_type', array('class'=>'input-medium')); 
-	echo $form->textFieldRow($model, 'deliver_type', array('class'=>'input-medium')); ?>
-	
-	<div class="control-group">
-		<label class="control-label">Стоимость товара: </label>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Стоимость доставки: </label>
-	</div>
-	<div class="control-group">
-		<label class="control-label">Общая стоимость: </label>
-	</div>
-	
-	</td>
-	
-    </tr>
-    </table> 
+	    <table>
+	        <tr>
+		        <td style="text-align: center; "><strong>Заказчик</strong></td>
+		        <td style="text-align: center; "><strong>Содержание заказа</strong></td>
+		        <td style="text-align: center; "><strong>Информация о заказе</strong></td>
+	        </tr>
+	        <tr>
+	            <td valign="top">
+	                <?php 
+	                echo $form->textFieldRow($model, 'fio', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'phone', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'email', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'index', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'city', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'street', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'house', array('class'=>'input-large')); 
+	                echo $form->textFieldRow($model, 'office', array('class'=>'input-large')); 
+	                ?>
+	            </td>
+	            <td valign="top">
+	                <?php
+	                //echo $form->textFieldRow($model, 'comment', array('class'=>'input-medium')); 
+	                //echo $form->textAreaRow($model, 'comment', array('class'=>'span8', 'rows'=>5)); 
+	                echo $form->textAreaRow($model, 'comment', array('class'=>'input-medium', 'rows'=>5)); 
+	                echo $form->textFieldRow($model, 'playpen_type', array('class'=>'input-medium')); 
+	                echo $form->textFieldRow($model, 'count', array('class'=>'input-medium')); 
+	                echo $form->textFieldRow($model, 'pillow', array('class'=>'input-medium')); 	
+	                ?>
+	            </td>
+	            <td valign="top">
+	                <?php
+	                echo $form->dropDownListRow($model, 'status_id', Statuses::model()->StatusList(), array('class'=>'input-medium')); 	
+	                echo $form->textFieldRow($model, 'payment_type', array('class'=>'input-medium')); 
+	                echo $form->textFieldRow($model, 'deliver_type', array('class'=>'input-medium'));
+                    echo $form->textFieldRow($model, 'costOrder', array('class'=>'input-medium'));
+                    echo $form->textFieldRow($model, 'costDelivery', array('class'=>'input-medium'));
+                    echo $form->textFieldRow($model, 'costSummary', array('class'=>'input-medium'));
+                    ?>
+	                
+	            </td>
+            </tr>
+        </table> 
 	</fieldset>
     
 	<div class="form-actions">
-    <?php 
-    $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Сохранить изменения')); 
-    //$this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'reset', 'label'=>'Reset'));
-    ?>
+        <?php 
+        $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Сохранить изменения')); 
+        ?>
 	</div>
 	
 	<?php $this->endWidget(); ?>

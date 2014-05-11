@@ -24,9 +24,9 @@
  */
 class Orders extends CActiveRecord
 {
-    public $costOrder;  //стоимость заказа
-    public $costDelivery;  //стоимость доставки
-    public $costSummary;  //стоимость всего
+    //public $costOrder;  //стоимость заказа
+    //public $costDelivery;  //стоимость доставки
+    //public $costSummary;  //стоимость всего
     
 	/**
 	 * @return string the associated database table name
@@ -51,7 +51,8 @@ class Orders extends CActiveRecord
 			array('email, house, office', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id', 'safe', 'on'=>'search'),
+            array('id, fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id', 'safe', 'on'=>'search'),
+			array('fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id, costOrder, costDelivery, costSummary', 'safe'),
 		);
 	}
 
@@ -90,7 +91,9 @@ class Orders extends CActiveRecord
 			'comment' => 'Комментарий',
 			'pillow' => 'Подушки',
 			'status_id' => 'Статус заказа',
-			
+            'costOrder' => 'Стоимость товара',  //стоимость заказа
+            'costDelivery' => 'Стоимость доставки',  //стоимость доставки
+            'costSummary' => 'Общая стоимость',  //стоимость всего
 		);
 	}
 
@@ -186,18 +189,23 @@ class Orders extends CActiveRecord
     
     //
     public function afterFind() {
-        if ($this->playpen_type == '0-3')
-            $this->costOrder = 2000;
-        else if ($this->playpen_type == '3+')
-            $this->costOrder = 1900;
-        else
-            $this->costOrder = 0;
-            
-        if ($this->count >= 2)
-            $this->costDelivery = 0;
-        else
-            $this->costDelivery = 350;
-            
+        if (empty($this->count))
+            $this->count = 0;
+        if (!isset($this->costOrder)) {
+            if ($this->playpen_type == '0-3')
+                $this->costOrder = 2000;
+            else if ($this->playpen_type == '3+')
+                $this->costOrder = 1900;
+            else
+                $this->costOrder = 0;
+            $this->costOrder = $this->costOrder * $this->count;
+        }
+        if (!isset($this->costDelivery)) {
+            if ($this->count >= 2)
+                $this->costDelivery = 0;
+            else
+                $this->costDelivery = 350;
+        }
         $this->costSummary = $this->costOrder+ $this->costDelivery;
     }
     
