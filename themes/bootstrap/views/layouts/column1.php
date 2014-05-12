@@ -6,8 +6,10 @@
 $allStatuses =  Orders::model()->StatusCount();
 $items = array();
 $isStatus = isset($_GET['status']);
+
+$countNew = Orders::model()->new()->count();
 $items[0] = array(
-	'label'=>"Новые заказы",
+	'label'=>"Новые заказы ($countNew)" ,
 	'url'=>Yii::app()->createUrl('site/index'),
     'active'=>!$isStatus,
 );

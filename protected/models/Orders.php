@@ -97,6 +97,18 @@ class Orders extends CActiveRecord
 		);
 	}
 
+    /**
+    * скоупы
+    * 
+    */
+    public function scopes() {
+        return array(
+            'new' => array(
+                'condition' => $this->getTableAlias() . '.status_id IS NULL',
+            ),
+        );
+    }
+    
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
@@ -160,34 +172,18 @@ class Orders extends CActiveRecord
 		);
 	}
 	
-	
+	//выборка всех разделов с количеством
 	public function StatusCount()
 	{
-		/*
-		$statusCount=array();
-		$statuses=Statuses::model->findAll();
-		foreach ($statuses as $status)
-		{
-			$criteria=new CDbCriteria(
-				'condition'=>'status='.$status->id,
-			);
-			$statusCount[$status->id] = $this->count($criteria);
-		}
-		return  $statusCount;
-		*/
-		
 		$statusMenuList = array();
 		$statuses = Statuses::model()->with('orderCount')->findAll();
-		foreach($statuses as $item) 
-		{
-  			//echo $item->status_name . '(' . $item->orderCount . ')';
+		foreach($statuses as $item) {
   			$statusMenuList [$item->id] = $item->status_name . '(' . $item->orderCount . ')';
   		}
   		return $statusMenuList;
-  		//return $statuses;
 	}
     
-    //
+    //процедура при выборке записи из базы (можно инитить или менять значения полей)
     public function afterFind() {
         if (empty($this->count))
             $this->count = 0;
