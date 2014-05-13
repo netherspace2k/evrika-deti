@@ -279,7 +279,8 @@ class SiteController extends Controller
         );
         $dataProvider = New CArrayDataProvider();*/
         //$rawData = Yii::app()->db->createCommand('SELECT count(*) FROM orders')->queryAll();
-        $rawData = Yii::app()->db->createCommand()
+
+        /*$rawData = Yii::app()->db->createCommand()
             ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
             ->from('orders')
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
@@ -293,10 +294,42 @@ class SiteController extends Controller
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
             ->where(array('in', 'status_id', array(2,4,5)))
             ->group('statuses.id, statuses.status_name')
+            ->queryAll();*/
+
+        $dataAll = Yii::app()->db->createCommand()
+            ->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
+            ->from('orders')
+            ->leftJoin('statuses', 'statuses.id = orders.status_id')
+            ->where(array('in', 'status_id', array(2,4,5)))
+            ->group('statuses.id, statuses.status_name')
             ->queryAll();
-        DebugBreak();
+        $cmdData = Yii::app()->db->createCommand()
+            ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
+            ->from('orders')
+            ->leftJoin('statuses', 'statuses.id = orders.status_id')
+            ->where('status_id = :status_id')
+            ->group('statuses.id, statuses.status_name, playpen_type');
+        foreach($dataAll as $key=>$data) {
+            $rawData[] = $data;
+            $datas = $cmdData->queryAll(true, array('status_id'=>$data['id']));
+            foreach($datas as $data) {
+                $data['status_name'] = "       " . $data['playpen_type'];
+                $rawData[] = $data;
+            }
+            //$rawData = array_merge($rawData, $datas);
+        }
+            
+        
+        
+        
+        //$rawData = array_merge($rawData, $rawData1);
         $dataCount = new CArrayDataProvider($rawData, array(
             'keyField'=>false,
+            'sort'=>array(
+                'attributes'=>array(
+                     'statuses.status_name',
+                ),
+            ),
         ));
         
         $rawData = Yii::app()->db->createCommand()

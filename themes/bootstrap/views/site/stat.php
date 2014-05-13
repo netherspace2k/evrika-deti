@@ -19,13 +19,13 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             //'value'=>'CHtml::link(CHtml::encode($data->id), $data->url)',
             //'filter'=>false,
         ),  
-        array(
+        /*array(
             'name'=>'playpen_type',
             'header'=>'Тип манежа',
             //'type'=>'raw',
             //'value'=>'CHtml::link(CHtml::encode($data->id), $data->url)',
             //'filter'=>false,
-        ),
+        ),*/
         array(
             'name'=>'count',
             'header'=>'Количество',
