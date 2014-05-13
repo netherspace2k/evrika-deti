@@ -17,10 +17,16 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'admin'=>'admin',
-		);
+		$users1 = Yii::app()->db->createCommand()
+            ->select('*')
+            ->from('users')
+            ->queryAll();
+        $users = array();
+        foreach($users1 as $user)
+            $users[$user['username']] = $user['password'];
+        /*$users = array(// username => password
+			    'admin'=>'admin',
+		    );*/
 		if(!isset($users[$this->username]))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		elseif($users[$this->username]!==$this->password)
