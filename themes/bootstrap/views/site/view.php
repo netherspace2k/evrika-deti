@@ -198,9 +198,9 @@ $this->widget('bootstrap.widgets.TbButton', array(
 			$model->body.='- кол-во манежей 0-3: '.(($order->playpen_type=='0-3')?$order->count:'0') . $CR;
 			$model->body.='- кол-во манежей 3+: '.(($order->playpen_type=='3+')?$order->count:'0') . $CR;
 			$model->body.='- подушки для авто: '.$order->pillow . $CR;
-			$model->body.='Общая сумма заказа: ' . $CR;
-			$model->body.='Стоимость доставки в г. Москва: ' . $CR;
-			$model->body.='Общая стоимость к оплате: ' . $CR . $CR;
+			$model->body.='Общая сумма заказа: ' . $order->costOrder . $CR;
+			$model->body.='Стоимость доставки в г. Москва: ' . $order->costDelivery . $CR;
+			$model->body.='Общая стоимость к оплате: ' . $order->costSummary . $CR . $CR;
 			$model->body.='Просим Вас проверить все данные и подтвердить заказ.' . $CR;
 			$model->body.='Индекс: '.$order->index . $CR;
 			$model->body.='Город: '.$order->city . $CR;
