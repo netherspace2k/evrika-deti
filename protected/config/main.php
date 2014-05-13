@@ -61,7 +61,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=shopnauni',
+			'connectionString' => 'mysql:host=localhost;dbname=evrika',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
@@ -91,7 +91,7 @@ return array(
             'class'=>'bootstrap.components.Bootstrap',
         ),
 	),
-
+    'language'=>'ru',
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
