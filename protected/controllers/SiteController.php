@@ -371,7 +371,7 @@ class SiteController extends Controller
         }
         $dataBalance = array();
         foreach($rawBalance as $key=>$value) {
-            $dataBalance[] = array('status_name'=>$key, 'sum'=>$value . ' ('.$rawSecond[$key].')');
+            $dataBalance[] = array('status_name'=>$key, 'sum'=>$value . ' ('. ($value - $rawSecond[$key]) .')');
         }        
         $dataBalance = new CArrayDataProvider($dataBalance, array(
             'keyField'=>false,
