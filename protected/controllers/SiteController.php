@@ -322,7 +322,8 @@ class SiteController extends Controller
             ->queryAll();*/
 
         $dataAll = Yii::app()->db->createCommand()
-            ->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
+            //->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
+            ->select(array('statuses.id', 'statuses.status_name', 'sum(orders.count) as count'))
             ->from('orders')
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
             ->where(array('in', 'status_id', array(2,4,5)))
