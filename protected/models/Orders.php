@@ -194,6 +194,8 @@ class Orders extends CActiveRecord
                 $this->costOrder = 1900;
             else
                 $this->costOrder = 0;
+            if ($this->pillow) 
+                $this->costOrder = $this->costOrder + 600;
             $this->costOrder = $this->costOrder * $this->count;
         }
         if (!isset($this->costDelivery)) {
