@@ -7,21 +7,11 @@ $this->pageTitle=Yii::app()->name;
 <h3><?php echo $pageHeader; ?></h3>
 
 <?php
-/*$this->widget('bootstrap.widgets.TbButton', array(
-    'label'=>'Primary',
-    'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-    'size'=>'large', // null, 'large', 'small' or 'mini'
-));*/
-
-//$this->widget('zii.widgets.grid.CGridView', array(
 $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'orders-grid',
     'type'=>'striped bordered condensed',
-	//'dataProvider'=>$model->search(),
 	'dataProvider'=>$dataProvider,
 	//'filter'=>$model,
-	//http://www.yiiframework.com/doc/api/1.1/CDataColumn
-	//'type' see here:www.yiiframework.com/doc/api/1.1/CFormatter
 	'columns'=>array(
 		array(
 		    'name'=>'id',
@@ -35,28 +25,11 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		'email',
 		'playpen_type',
 		'count',
-		/*array(
-		    'name'=>'status',
-		    'type'=>'raw',
-		    'value'=>'isset($data->status) ? $data->status->status_name : ""',
-		    //'filter'=>false,
-		),*/
-
         array(
             'header'=>'Статус',
             'type'=>'raw',
-            //'value' => '($data->activation == 1) ? "Активен" : CHtml::dropdownList("activationtype", "", $list, array("id"=>"acttype".$data->id, "name"=>"acttype".$data->id))',
-            //'value' => '($data->activation == 1) ? "Активен" : CHtml::dropdownList("activationtype", "", CHtml::listData(ActivcationTypes::model()->findAll(array("condition"=>"id > 1", "order"=>"fulldays")), "id", "name"), array("id"=>"acttype".$data->id, "name"=>"acttype".$data->id))',
             'value' => 'CHtml::dropdownList("status", $data->status_id, CHtml::listData(Statuses::model()->findAll(), "id", "status_name"), array("empty"=>"", "id"=>"status_".$data->id, "name"=>"status_".$data->id))',
         ),
-        
-        /*array(
-            'header'=>'Действие',
-            'type'=>'html',
-            //'value' => 'Yii::app()->controller->widget("bootstrap.widgets.TbButton", array("label"=>"Primary", "type"=>"primary", "size"=>"large", ))',
-            'value' => 'CHtml::link("Изменить", "", array("class"=>"btn btn-small"))',
-        ), */
-        
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
             'template'=>'{status}',

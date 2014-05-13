@@ -239,6 +239,11 @@ class SiteController extends Controller
 		*/
 	}
 	
+    /**
+    * смена статуса заказа
+    * 
+    * @param mixed $id
+    */
     public function actionStatus($id) {
         $posted_statusid = Yii::app()->request->getParam('statusid');
         //if ($posted_statusid == 'undefined')
@@ -262,5 +267,52 @@ class SiteController extends Controller
             else
                 $this->redirect($this->createUrl('users/view', array('id'=>$id)));
         }
+    }
+    
+    /**
+    * вывод статистики
+    * 
+    */
+    public function actionStatistic() {
+        /*$rawData = array(
+            array('id'=>''),
+        );
+        $dataProvider = New CArrayDataProvider();*/
+        //$rawData = Yii::app()->db->createCommand('SELECT count(*) FROM orders')->queryAll();
+        $rawData = Yii::app()->db->createCommand()
+            ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
+            ->from('orders')
+            ->leftJoin('statuses', 'statuses.id = orders.status_id')
+            ->where(array('in', 'status_id', array(2,4,5)))
+            ->group('statuses.id, statuses.status_name, playpen_type')
+            ->queryAll();
+        
+        $rawData1 = Yii::app()->db->createCommand()
+            ->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
+            ->from('orders')
+            ->leftJoin('statuses', 'statuses.id = orders.status_id')
+            ->where(array('in', 'status_id', array(2,4,5)))
+            ->group('statuses.id, statuses.status_name')
+            ->queryAll();
+        DebugBreak();
+        $dataCount = new CArrayDataProvider($rawData, array(
+            'keyField'=>false,
+        ));
+        
+        $rawData = Yii::app()->db->createCommand()
+            ->select(array('statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
+            ->from('orders')
+            ->leftJoin('statuses', 'statuses.id = orders.status_id')
+            ->where(array('in', 'status_id', array(2,4,5)))
+            ->group('statuses.status_name, playpen_type')
+            ->queryAll();
+        $dataAvailability = new CArrayDataProvider($rawData, array(
+            'keyField'=>false,
+        ));
+        
+        $this->render('stat', array(
+            'dataCount'=>$dataCount,
+            'dataAvailability'=>$dataAvailability,
+        ));
     }
 }
