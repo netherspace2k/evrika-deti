@@ -187,16 +187,18 @@ class Orders extends CActiveRecord
     public function afterFind() {
         if (empty($this->count))
             $this->count = 0;
-        if (!isset($this->costOrder)) {
+        if (!isset($this->costOrder)) { //проверяем тип товара
             if ($this->playpen_type == '0-3')
-                $this->costOrder = 2000;
+                $this->costOrder = 2000;     //ставим цену
             else if ($this->playpen_type == '3+')
                 $this->costOrder = 1900;
             else
                 $this->costOrder = 0;
+            //умножаем на кол-во
+            $this->costOrder = $this->costOrder * $this->count;
+            //добавляем подушку ))
             if ($this->pillow) 
                 $this->costOrder = $this->costOrder + 600;
-            $this->costOrder = $this->costOrder * $this->count;
         }
         if (!isset($this->costDelivery)) {
             if ($this->count >= 2)
