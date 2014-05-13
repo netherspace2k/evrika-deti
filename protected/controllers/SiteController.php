@@ -330,7 +330,7 @@ class SiteController extends Controller
             ->group('statuses.id, statuses.status_name')
             ->queryAll();
         $cmdData = Yii::app()->db->createCommand()
-            ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
+            ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'sum(orders.count) as count'))
             ->from('orders')
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
             ->where('status_id = :status_id')
