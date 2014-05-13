@@ -102,6 +102,12 @@
 		echo CHtml::encode(isset($order->status) ? $order->status->status_name : '');
 		?></b>
 	</p>
+    <p>
+        <?php echo CHtml::encode($order->getAttributeLabel('page')); ?>
+        : <b><?php
+        echo CHtml::encode($order->page);
+        ?></b>
+    </p>    
 	<p>
 		<?php echo CHtml::encode($order->getAttributeLabel('deliver_type')); ?>
 		: <b><?php
