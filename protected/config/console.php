@@ -13,7 +13,7 @@ return array(
 	'components'=>array(
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=evrika',
+			'connectionString' => 'mysql:host=localhost;dbname=shopnauni',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
