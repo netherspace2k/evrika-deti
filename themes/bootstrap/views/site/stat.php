@@ -6,32 +6,39 @@ $this->pageTitle=Yii::app()->name;
 
 <h3>Статистика</h3>
 
+<h4>Количество</h4>
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
-    'id'=>'orders-grid',
+    'id'=>'count-grid',
     'type'=>'striped bordered condensed',
     'dataProvider'=>$dataCount,
     'columns'=>array(
         array(
             'name'=>'status_name',
             'header'=>'Раздел',
-            //'type'=>'raw',
-            //'value'=>'CHtml::link(CHtml::encode($data->id), $data->url)',
-            //'filter'=>false,
         ),  
-        /*array(
-            'name'=>'playpen_type',
-            'header'=>'Тип манежа',
-            //'type'=>'raw',
-            //'value'=>'CHtml::link(CHtml::encode($data->id), $data->url)',
-            //'filter'=>false,
-        ),*/
         array(
             'name'=>'count',
             'header'=>'Количество',
-            //'type'=>'raw',
-            //'value'=>'CHtml::link(CHtml::encode($data->id), $data->url)',
-            //'filter'=>false,
+        ),
+    ),    
+));
+?>
+
+<h4>Баланс</h4>
+<?php 
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id'=>'balance-grid',
+    'type'=>'striped bordered condensed',
+    'dataProvider'=>$dataBalance,
+    'columns'=>array(
+        array(
+            'name'=>'status_name',
+            'header'=>'Раздел',
+        ),  
+        array(
+            'name'=>'sum',
+            'header'=>'Сумма',
         ),
     ),    
 ));

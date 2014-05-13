@@ -2,6 +2,34 @@
 
 class SiteController extends Controller
 {
+
+    public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions'=>array('login'),  
+                //'users'=>array('*'),
+            ),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                //'actions'=>array('admin','delete'),
+                'actions'=>array('*'),
+                'users'=>array('admin'),
+            ),
+            // deny all users   
+            array('deny',
+                //'actions'=>array('*'),  
+                'users'=>array('?'),
+            ),
+        );
+    }
+    
 	/**
 	 * Declares class-based actions.
 	 */
@@ -274,11 +302,8 @@ class SiteController extends Controller
     * 
     */
     public function actionStatistic() {
-        /*$rawData = array(
-            array('id'=>''),
-        );
-        $dataProvider = New CArrayDataProvider();*/
-        //$rawData = Yii::app()->db->createCommand('SELECT count(*) FROM orders')->queryAll();
+        
+        //количество
 
         /*$rawData = Yii::app()->db->createCommand()
             ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
@@ -313,15 +338,11 @@ class SiteController extends Controller
             $rawData[] = $data;
             $datas = $cmdData->queryAll(true, array('status_id'=>$data['id']));
             foreach($datas as $data) {
-                $data['status_name'] = "       " . $data['playpen_type'];
+                $data['status_name'] = $data['playpen_type'];
                 $rawData[] = $data;
             }
             //$rawData = array_merge($rawData, $datas);
         }
-            
-        
-        
-        
         //$rawData = array_merge($rawData, $rawData1);
         $dataCount = new CArrayDataProvider($rawData, array(
             'keyField'=>false,
@@ -332,20 +353,35 @@ class SiteController extends Controller
             ),
         ));
         
-        $rawData = Yii::app()->db->createCommand()
-            ->select(array('statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
-            ->from('orders')
-            ->leftJoin('statuses', 'statuses.id = orders.status_id')
-            ->where(array('in', 'status_id', array(2,4,5)))
-            ->group('statuses.status_name, playpen_type')
-            ->queryAll();
-        $dataAvailability = new CArrayDataProvider($rawData, array(
+        //баланс
+        $criteria = New CDbCriteria();
+        $criteria->addInCondition('status_id', array(2,4,5));
+        $orders = Orders::model()->findAll($criteria);
+        $rawBalance = array();
+        $rawSecond = array();
+        foreach($orders as $order) {
+            $name = $order->status->status_name;
+            if (!key_exists($name, $rawBalance)) 
+                $rawBalance[$name] = 0;
+            $rawBalance[$name] = $rawBalance[$name] + $order->costOrder;
+
+            if (!key_exists($name, $rawSecond)) 
+                $rawSecond[$name] = 0;
+            $rawSecond[$name] = $rawSecond[$name] + $order->count * 1000;
+        }
+        $dataBalance = array();
+        foreach($rawBalance as $key=>$value) {
+            $dataBalance[] = array('status_name'=>$key, 'sum'=>$value . ' ('.$rawSecond[$key].')');
+        }        
+        $dataBalance = new CArrayDataProvider($dataBalance, array(
             'keyField'=>false,
         ));
         
+        //рендер формы
         $this->render('stat', array(
             'dataCount'=>$dataCount,
-            'dataAvailability'=>$dataAvailability,
+            'dataBalance'=>$dataBalance,
+            //'dataAvailability'=>$dataAvailability,
         ));
     }
 }
