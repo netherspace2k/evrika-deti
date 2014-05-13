@@ -87,7 +87,7 @@ class Orders extends CActiveRecord
 			'street' => 'Улица',
 			'house' => 'Дом',
 			'office' => 'Квартира',
-			'page' => 'Page',
+			'page' => 'Источник',
 			'comment' => 'Комментарий',
 			'pillow' => 'Подушки',
 			'status_id' => 'Статус заказа',

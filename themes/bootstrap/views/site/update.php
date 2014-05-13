@@ -55,6 +55,7 @@
 	            <td valign="top">
 	                <?php
 	                echo $form->dropDownListRow($model, 'status_id', Statuses::model()->StatusList(), array('class'=>'input-medium')); 	
+                    echo $form->textFieldRow($model, 'page', array('class'=>'input-medium')); 
 	                echo $form->textFieldRow($model, 'payment_type', array('class'=>'input-medium')); 
 	                echo $form->textFieldRow($model, 'deliver_type', array('class'=>'input-medium'));
                     echo $form->textFieldRow($model, 'costOrder', array('class'=>'input-medium'));
