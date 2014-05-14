@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+    private $_model;
 
     public function filters()
     {
@@ -237,7 +238,6 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 	
-	private $_model;
 	public function loadModel() //ID не нужен?
 	{
 		if($this->_model===null)
@@ -301,26 +301,9 @@ class SiteController extends Controller
     * вывод статистики
     * 
     */
-    public function actionStatistic() {
-        
+    public function actionStatistic() 
+    {
         //количество
-
-        /*$rawData = Yii::app()->db->createCommand()
-            ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'COUNT(*) as count'))
-            ->from('orders')
-            ->leftJoin('statuses', 'statuses.id = orders.status_id')
-            ->where(array('in', 'status_id', array(2,4,5)))
-            ->group('statuses.id, statuses.status_name, playpen_type')
-            ->queryAll();
-        
-        $rawData1 = Yii::app()->db->createCommand()
-            ->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
-            ->from('orders')
-            ->leftJoin('statuses', 'statuses.id = orders.status_id')
-            ->where(array('in', 'status_id', array(2,4,5)))
-            ->group('statuses.id, statuses.status_name')
-            ->queryAll();*/
-
         $dataAll = Yii::app()->db->createCommand()
             //->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
             ->select(array('statuses.id', 'statuses.status_name', 'sum(orders.count) as count'))
@@ -353,6 +336,16 @@ class SiteController extends Controller
                 ),
             ),
         ));
+
+        //наличие
+        $rawAvailability = Yii::app()->db->createCommand()
+            ->select(array('playpen_type', 'count - (select sum(orders.count) from orders where status_id in (4,5) and orders.playpen_type = products.playpen_type) as count'))
+            ->from('products')
+            ->union('select "Всего" as playpen_type, sum(count) - (select sum(orders.count) from orders where status_id in (4,5)) as count from products')
+            ->queryAll();
+        $dataAvailability = new CArrayDataProvider($rawAvailability, array(
+            'keyField'=>false,
+        ));
         
         //баланс
         $criteria = New CDbCriteria();
@@ -382,7 +375,7 @@ class SiteController extends Controller
         $this->render('stat', array(
             'dataCount'=>$dataCount,
             'dataBalance'=>$dataBalance,
-            //'dataAvailability'=>$dataAvailability,
+            'dataAvailability'=>$dataAvailability,
         ));
     }
 }
