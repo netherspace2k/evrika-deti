@@ -108,6 +108,12 @@
         echo CHtml::encode($order->page);
         ?></b>
     </p>    
+    <p>
+        <?php echo CHtml::encode($order->getAttributeLabel('delivery_id')); ?>
+        : <b><?php
+        echo CHtml::encode($order->delivery_id);
+        ?></b>
+    </p>    
 	<p>
 		<?php echo CHtml::encode($order->getAttributeLabel('deliver_type')); ?>
 		: <b><?php

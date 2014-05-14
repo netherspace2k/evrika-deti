@@ -52,7 +52,7 @@ class Orders extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
             array('id, fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id', 'safe', 'on'=>'search'),
-			array('fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id, costOrder, costDelivery, costSummary', 'safe'),
+			array('fio, phone, email, playpen_type, count, deliver_type, payment_type, city, index, street, house, office, page, comment, pillow, status_id, costOrder, costDelivery, costSummary, delivery_id', 'safe'),
 		);
 	}
 
@@ -94,6 +94,7 @@ class Orders extends CActiveRecord
             'costOrder' => 'Стоимость товара',  //стоимость заказа
             'costDelivery' => 'Стоимость доставки',  //стоимость доставки
             'costSummary' => 'Общая стоимость',  //стоимость всего
+            'delivery_id' => 'ID доставки',  //стоимость всего
 		);
 	}
 
