@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name;
 
 <h3><?php echo $pageHeader; ?></h3>
 
-<?php
+<?php 
 $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'orders-grid',
     'type'=>'striped bordered condensed',
@@ -28,11 +28,14 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'header'=>'Статус',
             'type'=>'raw',
+            'visible'=>Yii::app()->user->role == "admin",
+            //'visible'=>Yii::app()->user->checkAccess('status'),
             'value' => 'CHtml::dropdownList("status", $data->status_id, CHtml::listData(Statuses::model()->findAll(), "id", "status_name"), array("empty"=>"", "id"=>"status_".$data->id, "name"=>"status_".$data->id))',
         ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
             'template'=>'{status}',
+            'visible'=>Yii::app()->user->role == "admin",
             'buttons' => array(
                 'status' => array(
                     'label'=>'Изменить',
@@ -50,6 +53,14 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'class'=>'bootstrap.widgets.TbButtonColumn',
             'template'=>'{view}{update}{delete}',
+            'buttons'=>array(
+                'update'=>array(
+                    'visible'=>'Yii::app()->user->role == "admin"',
+                ),
+                'delete'=>array(
+                    'visible'=>'Yii::app()->user->role == "admin"',
+                ),
+            )
         ),
         
 	),

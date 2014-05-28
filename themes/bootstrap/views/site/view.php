@@ -140,13 +140,14 @@
 </div></div>
 
 <?php
-$this->widget('bootstrap.widgets.TbButton', array(
-    'label'=>'Изменить заказ',
-    'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-    'size'=>'', // null, 'large', 'small' or 'mini'
-    'url'=>Yii::app()->createUrl('site/update', array('id'=>$order->id)),
-));
-	
+if (Yii::app()->user->role == "admin") {
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>'Изменить заказ',
+        'type'=>'primary', // null, 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+        'size'=>'', // null, 'large', 'small' or 'mini'
+        'url'=>Yii::app()->createUrl('site/update', array('id'=>$order->id)),
+    ));
+}
 	//echo CHtml::link('Редактировать заказ', Yii::app()->createUrl('site/update', array('id'=>$order->id)));
 ?>
 <br/><br/>

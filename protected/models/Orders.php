@@ -107,8 +107,32 @@ class Orders extends CActiveRecord
             'new' => array(
                 'condition' => $this->getTableAlias() . '.status_id IS NULL',
             ),
+            'partner' => array(
+                'condition' => $this->getTableAlias() . '.page = :partner',
+                'params' => array(':partner'=>Yii::app()->user->id),
+            ),
         );
     }
+    
+    /**
+    * скоуп по умолчанию
+    * 
+    */
+    public function defaultscope() {//DebugBreak();
+        if (Yii::app()->user->role == "partner") 
+        {
+            //$scopes = $this->scopes();
+            //$arr = $scopes['partner'];
+            $arr = array(
+                'condition' => 'page = :partner',
+                'params' => array(':partner'=>Yii::app()->user->id),
+            );
+        } else {
+            $arr = array();
+        }
+        return $arr;
+    }
+    
     
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
@@ -185,7 +209,7 @@ class Orders extends CActiveRecord
 	}
     
     //процедура при выборке записи из базы (можно инитить или менять значения полей)
-    public function afterFind() {
+   /* public function afterFind() {
         if (empty($this->count))
             $this->count = 0;
         if (!isset($this->costOrder)) { //проверяем тип товара
@@ -208,6 +232,6 @@ class Orders extends CActiveRecord
                 $this->costDelivery = 350;
         }
         $this->costSummary = $this->costOrder+ $this->costDelivery;
-    }
+    }*/
     
 }

@@ -38,10 +38,16 @@ return array(
 
 	// application components
 	'components'=>array(
-		'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
-		),
+        'user'=>array(
+            // enable cookie-based authentication
+            'class' => 'WebUser',
+            'allowAutoLogin'=>true,
+            'loginUrl' => array('/site/login'),
+        ),
+        'authManager'=>array(
+            'class'=>'PhpAuthManager',
+            'defaultRoles' => array('guest'),
+        ),        
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

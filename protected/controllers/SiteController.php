@@ -15,18 +15,23 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('login'),  
+                'actions'=>array('login', 'logout'),
                 //'users'=>array('*'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 //'actions'=>array('admin','delete'),
-                'actions'=>array('*'),
-                'users'=>array('admin'),
+                //'actions'=>array('*'),
+                'roles'=>array('admin'),
+            ),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                //'actions'=>array('admin','delete'),
+                'actions'=>array('view', 'statistic', 'index'),
+                'roles'=>array('partner'),
             ),
             // deny all users   
             array('deny',
                 //'actions'=>array('*'),  
-                'users'=>array('?'),
+                'users'=>array('*'),
             ),
         );
     }
@@ -50,6 +55,13 @@ class SiteController extends Controller
 		);
 	}
 
+    /*public function beforeAction($action) {DebugBreak();
+        $auth = Yii::app()->authManager;
+        $auth->init();
+        $yy = Yii::app()->user->checkAccess('update');
+        return true;
+    }*/
+    
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -136,7 +148,7 @@ class SiteController extends Controller
 	}
 	
 	public function actionUpdate($id)
-	{
+	{//DebugBreak();
 		$model=new Orders('update');
 		$model=$this->loadModel($id);
 
@@ -161,8 +173,17 @@ class SiteController extends Controller
 	    $this->render('update',array('model'=>$model));
 	}
 	
-	
+    //ДЕЙСТВИЕ: удаление 
+    public function actionDelete($id)
+    {
+        if ($model = $this->loadModel($id))
+            $model->delete();
 
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('/command/index'));
+    }  
+    
 	/**
 	 * This is the action to handle external exceptions.
 	 */
