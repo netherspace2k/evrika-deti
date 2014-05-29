@@ -71,21 +71,11 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 	
-		$criteria=new CDbCriteria(array(
-			//'condition'=>'status='.Post::STATUS_PUBLISHED,
-			//'order'=>'date_start',  //DESC не нужен
-			//'with'=>'commentCount',
-			/*
-			'with'=>array('author'=>array(
-        		'select'=>false, // сами юзеры не нужны, но нужно выбрать только НЕЗАБАНЕНЫХ пользователей 
-        		'joinType'=>'INNER JOIN',
-        		'condition'=>'author.banned=:banned', // можно так!
-        		'params'=>array('banned'=>0),
-	    	)),*/
+		$criteria = new CDbCriteria(array(
 		));
 		if (isset($_GET['status'])) {
 			$criteria->addSearchCondition('status_id',$_GET['status']);
-			$PageHeader=Statuses::model()->findByPk($_GET['status'])->status_name;
+			$PageHeader = Statuses::model()->findByPk($_GET['status'])->status_name;
 		} else  {
 			$criteria->addCondition('status_id is null');
             $PageHeader='Новые заказы';
@@ -122,25 +112,11 @@ class SiteController extends Controller
 				$subject = $model->subject;
 				$headers = "\r\nFrom: " . Yii::app()->params['adminEmail'] . "\r\nReply-To: " . Yii::app()->params['adminEmail']. "\r\n". 
  						"Content-type: text/plain; charset={$charset}\r\n"; 
-				
 				mail($model->email, $subject, $model->body, $headers);
-				/*
-				if (mail("sa_id@mail.ru", "test", "test"))
-				{	
-					echo 'Email sended!';
-					die();
-				}
-				else 
-				{
-					echo 'Email failed!';
-					die();
-				}
-				*/
 				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
 				$this->refresh();
 			}
 		}
-				
 		$this->render('view', array(
 				'order'=>$order,
 				'model'=>$model,
@@ -148,24 +124,19 @@ class SiteController extends Controller
 	}
 	
 	public function actionUpdate($id)
-	{//DebugBreak();
+	{
 		$model=new Orders('update');
 		$model=$this->loadModel($id);
 
 	    // uncomment the following code to enable ajax-based validation
-	    /*
-	    if(isset($_POST['ajax']) && $_POST['ajax']==='orders-update-form')
-	    {
+	    /* if(isset($_POST['ajax']) && $_POST['ajax']==='orders-update-form') {
 	        echo CActiveForm::validate($model);
 	        Yii::app()->end();
-	    }
-	    */
+	    } */
 
-	    if(isset($_POST['Orders']))
-	    {
+	    if (isset($_POST['Orders'])) {
 	        $model->attributes=$_POST['Orders'];
-	        if($model->validate())
-	        {
+	        if($model->validate()) {
 				if($model->save())
 					$this->redirect(array('view','id'=>$model->id));
 	        }
@@ -189,8 +160,7 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
-		if($error=Yii::app()->errorHandler->error)
-		{
+		if($error=Yii::app()->errorHandler->error) {
 			if(Yii::app()->request->isAjaxRequest)
 				echo $error['message'];
 			else
@@ -229,7 +199,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+		$model = new LoginForm;
 
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -261,10 +231,8 @@ class SiteController extends Controller
 	
 	public function loadModel() //ID не нужен?
 	{
-		if($this->_model===null)
-		{
-			if(isset($_GET['id']))
-			{
+		if ($this->_model === null) {
+			if (isset($_GET['id'])) {
 				/*
 				if(Yii::app()->user->isGuest)
 					$condition='status='.Post::STATUS_PUBLISHED
@@ -272,20 +240,12 @@ class SiteController extends Controller
 				else
 					$condition='';
 				*/
-				$this->_model=Orders::model()->findByPk($_GET['id']);
+				$this->_model = Orders::model()->findByPk($_GET['id']);
 			}
-			if($this->_model===null)
+			if ($this->_model === null)
 				throw new CHttpException(404,'Запрашиваемая страница не существует.(loadModel)');
 		}
 		return $this->_model;
-    
-		//original version from Gii
-		/* 
-		$model=Post::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-		*/
 	}
 	
     /**
@@ -325,20 +285,31 @@ class SiteController extends Controller
     public function actionStatistic() 
     {
         //количество
-        $dataAll = Yii::app()->db->createCommand()
+        $cmdAll = Yii::app()->db->createCommand()
             //->select(array('statuses.id', 'statuses.status_name', 'COUNT(*) as count'))
             ->select(array('statuses.id', 'statuses.status_name', 'sum(orders.count) as count'))
             ->from('orders')
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
             ->where(array('in', 'status_id', array(2,4,5)))
-            ->group('statuses.id, statuses.status_name')
-            ->queryAll();
+            ->group('statuses.id, statuses.status_name');
+        //если партнёр, добавить условие для выборки
+        if (Yii::app()->user->isPartner) {
+            $cmdAll->andWhere('page = :partner');
+            $cmdAll->params = array(':partner'=>Yii::app()->user->name);
+        }
+        $dataAll = $cmdAll->queryAll();
+        
         $cmdData = Yii::app()->db->createCommand()
             ->select(array('statuses.id', 'statuses.status_name', 'playpen_type', 'sum(orders.count) as count'))
             ->from('orders')
             ->leftJoin('statuses', 'statuses.id = orders.status_id')
             ->where('status_id = :status_id')
             ->group('statuses.id, statuses.status_name, playpen_type');
+        //если партнёр, добавить условие для выборки
+        if (Yii::app()->user->isPartner) {
+            $cmdAll->andWhere('page = :partner');
+            $cmdAll->params = array(':partner'=>Yii::app()->user->name);
+        }
         foreach($dataAll as $key=>$data) {
             $rawData[] = $data;
             $datas = $cmdData->queryAll(true, array('status_id'=>$data['id']));
@@ -359,14 +330,16 @@ class SiteController extends Controller
         ));
 
         //наличие
-        $rawAvailability = Yii::app()->db->createCommand()
-            ->select(array('playpen_type', 'count - (select sum(orders.count) from orders where status_id in (4,5) and orders.playpen_type = products.playpen_type) as count'))
-            ->from('products')
-            ->union('select "Всего" as playpen_type, sum(count) - (select sum(orders.count) from orders where status_id in (4,5)) as count from products')
-            ->queryAll();
-        $dataAvailability = new CArrayDataProvider($rawAvailability, array(
-            'keyField'=>false,
-        ));
+        if (Yii::app()->user->isAdmin) {
+            $rawAvailability = Yii::app()->db->createCommand()
+                ->select(array('playpen_type', 'count - (select sum(orders.count) from orders where status_id in (4,5) and orders.playpen_type = products.playpen_type) as count'))
+                ->from('products')
+                ->union('select "Всего" as playpen_type, sum(count) - (select sum(orders.count) from orders where status_id in (4,5)) as count from products')
+                ->queryAll();
+            $dataAvailability = new CArrayDataProvider($rawAvailability, array(
+                'keyField'=>false,
+            ));
+        }
         
         //баланс
         $criteria = New CDbCriteria();
@@ -382,7 +355,7 @@ class SiteController extends Controller
 
             if (!key_exists($name, $rawSecond)) 
                 $rawSecond[$name] = 0;
-            $rawSecond[$name] = $rawSecond[$name] + $order->count * 1000;
+            $rawSecond[$name] = $rawSecond[$name] + $order->count * (Yii::app()->user->isPartner ? Orders::COST_PARTNER : Orders::COST_ADMIN);
         }
         $dataBalance = array();
         foreach($rawBalance as $key=>$value) {
@@ -396,7 +369,7 @@ class SiteController extends Controller
         $this->render('stat', array(
             'dataCount'=>$dataCount,
             'dataBalance'=>$dataBalance,
-            'dataAvailability'=>$dataAvailability,
+            'dataAvailability'=>isset($dataAvailability) ? $dataAvailability : null,
         ));
     }
 }

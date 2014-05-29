@@ -83,8 +83,19 @@ class WebUser extends CWebUser
         return $this->model($id);
     }
 
-    public function isAdmin() {
-        return Yii::app()->getModule('user')->isAdmin();
-    }*/
-
+    */
+    
+    /**
+    * является ли юзер админом
+    */
+    public function getIsAdmin() {
+        return ($this->role == "admin");
+    }
+    
+    /**
+    * является ли юзер админом
+    */
+    public function getIsPartner() {
+        return ($this->role == "partner");
+    }
 }

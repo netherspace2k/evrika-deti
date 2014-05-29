@@ -24,6 +24,9 @@
  */
 class Orders extends CActiveRecord
 {
+    const COST_ADMIN = 1000;
+    const COST_PARTNER = 1300;
+    
     //public $costOrder;  //стоимость заказа
     //public $costDelivery;  //стоимость доставки
     //public $costSummary;  //стоимость всего
