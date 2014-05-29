@@ -5,7 +5,16 @@
 <?php
 if (($this->action->id=='index') or  ($this->action->id=='view'))
 {
-	$allStatuses =  Orders::model()->StatusCount();
+	//вывести уникальную ссылку для партнёра
+    if (Yii::app()->user->role == "partner") {
+        $username = Yii::app()->user->name; 
+        echo CHtml::openTag('div', array('class'=>"alert in alert-block fade alert-warning"));
+        echo CHtml::link('×', '', array('class'=>"close", 'data-dismiss'=>"alert"));
+        echo "Ваша уникальная ссылка <strong>http://www.evrika-deti.ru/?pr=$username</strong>";
+        echo CHtml::closeTag('div');
+    }
+    
+    $allStatuses =  Orders::model()->StatusCount();
 	$items = array();
 	$isStatus = isset($_GET['status']);
 
