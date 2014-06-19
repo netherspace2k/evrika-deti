@@ -17,7 +17,9 @@ $this->breadcrumbs=array(
 	'id'=>'login-form',
     'type'=>'horizontal',
 	'enableClientValidation'=>true,
+    'enableAjaxValidation'=>true,
 	'clientOptions'=>array(
+        'validateOnChange'=>false,
 		'validateOnSubmit'=>true,
 	),
 )); ?>

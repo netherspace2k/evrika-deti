@@ -41,7 +41,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		else {
 			$this->errorCode = self::ERROR_NONE;
-            $this->_superuser = $superuser[$users[$this->username]];
+            $this->_superuser = $superuser[$this->username];
         }
 		return !$this->errorCode;
 	}
