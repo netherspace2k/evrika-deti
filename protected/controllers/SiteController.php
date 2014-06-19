@@ -310,6 +310,8 @@ class SiteController extends Controller
             $cmdAll->andWhere('page = :partner');
             $cmdAll->params = array(':partner'=>Yii::app()->user->name);
         }
+        
+        $rawData = array();
         foreach($dataAll as $key=>$data) {
             $rawData[] = $data;
             $datas = $cmdData->queryAll(true, array('status_id'=>$data['id']));
@@ -317,9 +319,8 @@ class SiteController extends Controller
                 $data['status_name'] = $data['playpen_type'];
                 $rawData[] = $data;
             }
-            //$rawData = array_merge($rawData, $datas);
         }
-        //$rawData = array_merge($rawData, $rawData1);
+        //
         $dataCount = new CArrayDataProvider($rawData, array(
             'keyField'=>false,
             'sort'=>array(
