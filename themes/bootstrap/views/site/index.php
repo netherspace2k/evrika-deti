@@ -28,14 +28,13 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'header'=>'Статус',
             'type'=>'raw',
-            'visible'=>Yii::app()->user->role == "admin",
-            //'visible'=>Yii::app()->user->checkAccess('status'),
+            'visible'=>true, //Yii::app()->user->role == "admin",
             'value' => 'CHtml::dropdownList("status", $data->status_id, CHtml::listData(Statuses::model()->findAll(), "id", "status_name"), array("empty"=>"", "id"=>"status_".$data->id, "name"=>"status_".$data->id))',
         ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
             'template'=>'{status}',
-            'visible'=>Yii::app()->user->role == "admin",
+            'visible'=>true, //Yii::app()->user->role == "admin",
             'buttons' => array(
                 'status' => array(
                     'label'=>'Изменить',
