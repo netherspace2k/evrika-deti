@@ -4,7 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h3>Статистика по дням</h3>
+<h3>Статистика по источникам</h3>
 
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
@@ -13,9 +13,9 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider'=>$dataProvider,
     'columns'=>array(
         array(
-            'name'=>'orderdate',
-            'type'=>'date',
-            'header'=>'Дата',
+            'name'=>'orderpage',
+            'type'=>'raw',
+            'header'=>'Источник',
         ),  
         array(
             'name'=>'count',

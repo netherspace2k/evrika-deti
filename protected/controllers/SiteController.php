@@ -408,5 +408,40 @@ class SiteController extends Controller
             'dataProvider'=>$dataProvider,
         ));
     }
+
+    /**
+    * вывод статистики по источникам
+    * 
+    */
+    public function actionStatbypage() {
+        $db = Yii::app()->db;
+        //кол-во записей всего
+        $totalItemCount = $db
+            ->createCommand('select count(*) from (select distinct page from orders where status_id not in (6,7) or status_id is null) as orders1')
+            ->queryScalar();
+        //запрос
+        $command = $db->createCommand()
+            ->select(array('page as orderpage', 'sum(orders.count) as count'))
+            ->from('orders')
+            ->where(array('OR', array('not in', 'status_id', array(Orders::STATUS_WHOLESALE, Orders::STATUS_DENIED)), 'status_id IS NULL'))
+            ->group('orderpage');
+        //набор данных
+        $dataProvider = new CSqlDataProvider($command->text, array(
+            'keyField'=>'orderpage',
+            'totalItemCount'=>$totalItemCount,
+            'sort'=>array(
+                'attributes'=>array(
+                     'orderpage',
+                ),
+            ),
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+       ));
+        //рендер формы
+        $this->render('statbypage', array(
+            'dataProvider'=>$dataProvider,
+        ));
+    }
     
 }

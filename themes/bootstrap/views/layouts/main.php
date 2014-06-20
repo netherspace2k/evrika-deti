@@ -12,20 +12,32 @@
 
 <body>
 
-<?php $this->widget('bootstrap.widgets.TbNavbar',array(
+<?php 
+if (Yii::app()->user->role == "admin") {
+    $itemsStat = array(
+        'label'=>'Статистика', 
+        'visible'=>!Yii::app()->user->isGuest,
+        'items'=> array(
+            array('label'=>'Общая', 'url'=>array('/site/statistic')),
+            array('label'=>'По дням', 'url'=>array('/site/statbyday')),
+            array('label'=>'По источникам', 'url'=>array('/site/statbypage')),
+        )
+    );
+} else {
+    $itemsStat = array(
+        'label'=>'Статистика', 
+        'visible'=>!Yii::app()->user->isGuest,
+        'url'=>array('/site/statistic')
+    );
+}
+
+$this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'Список заказов', 'url'=>array('/site/index'), 'visible'=>!Yii::app()->user->isGuest),
-                array(
-                    'label'=>'Статистика', 
-                    'visible'=>!Yii::app()->user->isGuest,
-                    'items'=> array(
-                        array('label'=>'Общая', 'url'=>array('/site/statistic')),
-                        array('label'=>'По дням', 'url'=>array('/site/statbyday')),
-                    )
-                ),
+                $itemsStat,
                 array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
