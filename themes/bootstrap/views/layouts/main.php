@@ -20,6 +20,7 @@ if (Yii::app()->user->role == "admin") {
         'items'=> array(
             array('label'=>'Общая', 'url'=>array('/site/statistic')),
             array('label'=>'По дням', 'url'=>array('/site/statbyday')),
+            array('label'=>'По месяцам', 'url'=>array('/site/statbymonth')),
             array('label'=>'По источникам', 'url'=>array('/site/statbypage')),
         )
     );
