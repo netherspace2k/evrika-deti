@@ -17,8 +17,15 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Список заказов', 'url'=>array('/site/index')),
-                array('label'=>'Статистика', 'url'=>array('/site/statistic')),
+                array('label'=>'Список заказов', 'url'=>array('/site/index'), 'visible'=>!Yii::app()->user->isGuest),
+                array(
+                    'label'=>'Статистика', 
+                    'visible'=>!Yii::app()->user->isGuest,
+                    'items'=> array(
+                        array('label'=>'Общая', 'url'=>array('/site/statistic')),
+                        array('label'=>'По дням', 'url'=>array('/site/statbyday')),
+                    )
+                ),
                 array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),

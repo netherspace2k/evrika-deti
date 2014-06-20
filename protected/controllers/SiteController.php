@@ -82,10 +82,10 @@ class SiteController extends Controller
 		}
 		
 		$dataProvider=new CActiveDataProvider('Orders', array(
+            'criteria'=>$criteria,
 			'pagination'=>array(
 				'pageSize'=>20,
 			),
-			'criteria'=>$criteria,
 		));
 		
 		$this->render('index',array(
@@ -372,5 +372,41 @@ class SiteController extends Controller
             'dataBalance'=>$dataBalance,
             'dataAvailability'=>isset($dataAvailability) ? $dataAvailability : null,
         ));
+    }  
+    
+    /**
+    * вывод статистики по дням
+    * 
+    */
+    public function actionStatbyday() {
+        $db = Yii::app()->db;
+        //кол-во записей всего
+        $totalItemCount = $db
+            ->createCommand('select count(*) from (select distinct date(time) from orders where status_id not in (6,7) or status_id is null) as orders1')
+            ->queryScalar();
+        //запрос
+        $command = $db->createCommand()
+            ->select(array('date(`time`) as orderdate', 'sum(orders.count) as count'))
+            ->from('orders')
+            ->where(array('OR', array('not in', 'status_id', array(Orders::STATUS_WHOLESALE, Orders::STATUS_DENIED)), 'status_id IS NULL'))
+            ->group('orderdate');
+        //набор данных
+        $dataProvider = new CSqlDataProvider($command->text, array(
+            'keyField'=>'orderdate',
+            'totalItemCount'=>$totalItemCount,
+            'sort'=>array(
+                'attributes'=>array(
+                     'orderdate',
+                ),
+            ),
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+       ));
+        //рендер формы
+        $this->render('statbyday', array(
+            'dataProvider'=>$dataProvider,
+        ));
     }
+    
 }

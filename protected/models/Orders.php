@@ -27,6 +27,14 @@ class Orders extends CActiveRecord
     const COST_ADMIN = 1000;
     const COST_PARTNER = 1300;
     
+    const STATUS_CONFIRM = 1;
+    const STATUS_SENDING = 2;
+    const STATUS_PAYMENT = 3;
+    const STATUS_SENDED = 4;
+    const STATUS_COMPLETED = 5;
+    const STATUS_WHOLESALE = 6;
+    const STATUS_DENIED = 7;
+    
     //public $costOrder;  //стоимость заказа
     //public $costDelivery;  //стоимость доставки
     //public $costSummary;  //стоимость всего

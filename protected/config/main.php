@@ -47,8 +47,14 @@ return array(
         'authManager'=>array(
             'class'=>'PhpAuthManager',
             'defaultRoles' => array('guest'),
-        ),        
-		// uncomment the following to enable URLs in path-format
+        ), 
+        'format' => array('dateFormat' => 'd.m.Y',
+                'timeFormat' => 'H:i:s',
+                'datetimeFormat' => 'd.m.Y H:i:s',
+                'numberFormat' => array('decimals' => null, 'decimalSeparator' => '.', 'thousandSeparator' => ' '),
+                'booleanFormat' => array('Нет','Да'),
+        ),
+        // uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
