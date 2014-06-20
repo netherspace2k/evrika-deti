@@ -20,8 +20,14 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		    //'filter'=>false,
 		),
 		//'city',
+        array(
+            'name'=>'time',
+            'type'=>'datetime',
+            'header'=>'Дата',
+        ),  
+        
 		'deliver_type',
-		//'fio',
+		'fio',
 		//'phone',
 		//'email',
 		'playpen_type',
