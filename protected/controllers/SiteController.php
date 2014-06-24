@@ -25,7 +25,7 @@ class SiteController extends Controller
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 //'actions'=>array('admin','delete'),
-                'actions'=>array('view', 'statistic', 'index', 'status'),
+                'actions'=>array('view', 'statistic', 'index', 'status', 'error'),
                 'roles'=>array('partner'),
             ),
             // deny all users   

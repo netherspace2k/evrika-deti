@@ -58,11 +58,23 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
 
 	<div class="clear"></div>
 
-	<div id="footer">
-		<?php echo 'Админка разработана ...'; ?>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="span6">
+                <p class="powered">
+                    Разработано
+                    <a href="http://www.yiiframework.com" target="_blank">Yii</a>
+                    /
+                    <a href="http://www.yiiframework.com/extension/bootstrap" target="_blank">Yii-Bootstrap</a>
+                </p>
+            </div>
+            <div class="span6">
+                <p class="copy"> © JSsoft 2014 </p>
+            </div>
+        </div>
+    </footer>    
+    
 </div><!-- page -->
 
 </body>
